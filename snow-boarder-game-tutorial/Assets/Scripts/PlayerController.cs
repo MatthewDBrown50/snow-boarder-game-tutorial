@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
-    float torque = 100;
+    [SerializeField] private float torque = 100;
 
     void Start()
     {
