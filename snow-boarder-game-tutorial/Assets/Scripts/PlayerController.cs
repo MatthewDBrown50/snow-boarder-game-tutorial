@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour
     private float baseSpeed = 10f;
     private float boostSpeed = 25f;
 
+    private bool canMove;
+
     private void Start()
     {
+        canMove = true;
         se = FindObjectOfType<SurfaceEffector2D>();
         se.speed = baseSpeed;
         rb = GetComponent<Rigidbody2D>();
@@ -20,8 +23,11 @@ public class PlayerController : MonoBehaviour
    
     private void Update()
     {
-        RotatePlayer();
-        AdjustSpeed();
+        if(canMove) 
+        {
+            RotatePlayer();
+            AdjustSpeed();
+        } 
     }
 
     private void RotatePlayer()
@@ -46,5 +52,10 @@ public class PlayerController : MonoBehaviour
         {
             se.speed = baseSpeed;
         }
+    }
+
+    public void DisableMovement()
+    {
+        canMove = false;
     }
 }

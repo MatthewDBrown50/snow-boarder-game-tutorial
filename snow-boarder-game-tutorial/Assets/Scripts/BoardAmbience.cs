@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class BoardAmbience : MonoBehaviour
 {
-    private AudioSource boardAmbientSoundEffect;
+    [SerializeField] private AudioClip boardAmbientSoundEffect;
+    private AudioSource audioSource;
 
     private void Start()
     {
-        boardAmbientSoundEffect = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Terrain"))
         {
-            boardAmbientSoundEffect.Play();
+            audioSource.PlayOneShot(boardAmbientSoundEffect);
         }
     }
 
@@ -23,7 +24,7 @@ public class BoardAmbience : MonoBehaviour
     {
         if (collision.collider.CompareTag("Terrain"))
         {
-            boardAmbientSoundEffect.Stop();
+            audioSource.Stop();
         }
     }
 }

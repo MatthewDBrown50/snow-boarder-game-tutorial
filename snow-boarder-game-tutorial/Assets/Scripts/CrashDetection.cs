@@ -8,23 +8,23 @@ public class CrashDetection : MonoBehaviour
     [SerializeField] private float reloadDelay = 1f;
     [SerializeField] private ParticleSystem crashEffect;
     private AudioSource crashSoundEffect;
-    private bool soundPlayed = false;
+    private bool hasCrashed = false;
+    private PlayerController pc;
 
     private void Start()
     {
         crashSoundEffect = GetComponent<AudioSource>();
+        pc = FindObjectOfType<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Terrain"))
+        if(collision.CompareTag("Terrain") && !hasCrashed)
         {
-            if(!soundPlayed)
-            {
-                crashSoundEffect.Play();
-                soundPlayed = true;
-            }
+            hasCrashed = true;
+            crashSoundEffect.Play();
             crashEffect.Play();
+            pc.DisableMovement();
             Invoke(nameof(ReloadScene), reloadDelay);
         }
     }

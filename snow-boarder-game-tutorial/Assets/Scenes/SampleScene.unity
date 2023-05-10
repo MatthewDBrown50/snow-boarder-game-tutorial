@@ -1587,7 +1587,7 @@ GameObject:
   - component: {fileID: 231594123}
   - component: {fileID: 231594124}
   m_Layer: 0
-  m_Name: Landing Hanler
+  m_Name: Landing Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2582,7 +2582,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fbbbae3ad8b738c4cb0502acf453c3b2, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2680,6 +2680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2427e71a8dddd494da27d92cacf6e962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boardAmbientSoundEffect: {fileID: 8300000, guid: fbbbae3ad8b738c4cb0502acf453c3b2, type: 3}
 --- !u!1 &717803733
 GameObject:
   m_ObjectHideFlags: 0
@@ -8442,7 +8443,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e98b38c4d403b9d4c8fa2000b02ab710, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.207
   m_Pitch: 1
   Loop: 0
   Mute: 0
